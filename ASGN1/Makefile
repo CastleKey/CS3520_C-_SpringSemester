@@ -1,0 +1,50 @@
+CC = g++
+CFLAGS = -c -o -Wall -g
+LDFLAGS =
+
+FIB_SOURCES = fib.cpp
+FRAME_SOURCES = frame.cpp
+SUM_SOURCES = sum.cpp
+REVERSE_SOURCES = reverse.cpp
+FIZZBUZZ_SOURCES = fizzbuzz.cpp
+
+FIB_OBJECTS = $(FIB_SOURCES:.cpp=.o)
+FRAME_OBJECTS = $(FRAME_SOURCES:.cpp=.o)
+SUM_OBJECTS = $(SUM_SOURCES:.cpp=.o)
+REVERSE_OBJECTS = $(REVERSE_SOURCES:.cpp=.o)
+FIZZBUZZ_OBJECTS = $(FIZZBUZZ_SOURCES:.cpp=.o)
+
+FIB_EXECUTABLE = fib
+FRAME_EXECUTABLE = frame
+SUM_EXECUTABLE = sum
+REVERSE_EXECUTABLE = reverse
+FIZZBUZZ_EXECUTABLE = fizzbuzz
+
+.PHONY: all fib frame sum reverse fizzbuzz
+
+all: fib frame sum reverse fizzbuzz
+
+fib: $(FIB_EXECUTABLE)
+
+frame: $(FRAME_EXECUTABLE)
+
+sum: $(SUM_EXECUTABLE)
+
+reverse: $(REVERSE_EXECUTABLE)
+
+fizzbuzz: $(FIZZBUZZ_EXECUTABLE)
+
+$(FIB_EXECUTABLE): $(FIB_OBJECTS)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+$(FRAME_EXECUTABLE): $(FRAME_OBJECTS)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+$(SUM_EXECUTABLE): $(SUM_OBJECTS)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+$(REVERSE_EXECUTABLE): $(REVERSE_OBJECTS)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+$(FIZZBUZZ_EXECUTABLE): $(FIZZBUZZ_OBJECTS)
+	$(CC) $(LDFLAGS) $^ -o $@
