@@ -15,18 +15,18 @@ int main() {
 
     // Declare variables
     int sum = 0;
-    int x = 0;
-    bool y = true;
+    int adder = 0;
+    bool stop = true;
 
     // Main loop for each input
-    while(y) {
-        std::cin >> x;
+    while(stop) {
+        std::cin >> adder;
         if (std::cin.eof()) {  // determines if the input was EOF
-            y = false;
+            stop = false;
             std::cout << sum << std::endl;  // prints the final sum
         }
         else {
-            sum = sum + x;  // Adds the latest input to the total
+            sum = sum + adder;  // Adds the latest input to the total
         }
     }
 
